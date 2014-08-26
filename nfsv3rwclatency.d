@@ -47,6 +47,7 @@ nfsv3:::op-read-done /ts[args[1]->noi_xid] != 0
   */
   @rd_lat_av = avg(this->delta);
   ts[args[1]->noi_xid] = 0;
+  self->x[args[0]->ci_remote, args[1]->noi_curpath] = 0;
 }
 
 nfsv3:::op-write-start {
@@ -64,6 +65,7 @@ nfsv3:::op-write-done /ts[args[1]->noi_xid] != 0
   */
   @wr_lat_av = avg(this->delta);
   ts[args[1]->noi_xid] = 0;
+  self->x[args[0]->ci_remote, args[1]->noi_curpath] = 0;
 }
 
 nfsv3:::op-commit-start {
@@ -81,6 +83,7 @@ nfsv3:::op-commit-done /ts[args[1]->noi_xid] != 0
   */
   @cmt_lat_av = avg(this->delta);
   ts[args[1]->noi_xid] = 0;
+  self->x[args[0]->ci_remote, args[1]->noi_curpath] = 0;
 }
 
 END {
