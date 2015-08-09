@@ -80,5 +80,5 @@ dtrace:::END
     printf("Sample end time %Y\n", walltimestamp);
     printf("%8s %8s %20s %10s %20s %20s\n",
         "r/w", "version", "misalignment (bytes)","Count", "Avg_t (us)", "Path");
-    printa("%8s %8s %20d %10@d %20@d %60s\n", @c, @t);
+    printa("%8s %8s %20d %10@d %20@d                 %20s\n", @c, @t);
 }'
